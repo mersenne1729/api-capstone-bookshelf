@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Bookshelf</title>
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+
+<body>
+    <section class="container header">
+        <h1>Know Your Area</h1>
+    </section>
+    <section class="container input-form">
+        <input id="pac-input" class="searchTerm" type="text" name="search" placeholder="Search your area..">
+        <button id='search' type="button" class="btn btn-primary">Submit</button>
+        <p> Simply submit the name of the place you want to know more about for everythng you need to know </p>
+    </section>
+
+
+    <section class="container output">
+        <div id="output1" class="column">Swat up on an area and know where your citys name comes from.</div>
+        <div id="output2" class="column">
+            <div id="map"></div>
+        </div>
+        <div id="output3" class="column">
+            <ul class="js-search-results">
+                <li>Interesting videos be here - well after you hit search!</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
