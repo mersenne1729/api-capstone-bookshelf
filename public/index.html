@@ -4,32 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- import google font -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+
+
+    <!-- sheet links -->
+    <script src="client.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+
     <title>Your Bookshelf</title>
-    <link rel="stylesheet" href="main.css">
-    
+
 </head>
 
-<body>
-    <section class="container header">
-        <h1>Know Your Area</h1>
-    </section>
-    <section class="container input-form">
-        <input id="pac-input" class="searchTerm" type="text" name="search" placeholder="Search your area..">
-        <button id='search' type="button" class="btn btn-primary">Submit</button>
-        <p> Simply submit the name of the place you want to know more about for everythng you need to know </p>
-    </section>
+<!-- page header-->
 
+<body>
+    <header class="container header">
+        <h1>
+                <span id="baner1">Jeromes Bookshelf</span>
+            </h1>
+        <h2><a href="/search/mordecai">Click me if you dare!</a></h2>
+    </header>
+
+    <!-- LOGIN -->
+
+
+    <!-- button to open the modal login form -->
+    <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+    <!-- the modal -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+        <!-- modal content -->
+        <form class="modal-content animate" action="action_page">
+            <div class="imgcontainer">
+                <img src="/image/bill.jpg" alt="Pick An Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <input type="checkbox" checked="checked"> Remember me
+            </div>
+
+
+            <div class="container" style="background-color:gray">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- wiki output -->
+    <section class="container input-form">
+        <input id="pac-input" class="searchTerm" type="text" name="search" placeholder="Select your book here">
+        <button id='search' type="button" class="btn btn-primary">Submit</button>
+        <p> </p>
+    </section>
 
     <section class="container output">
-        <div id="output1" class="column">Swat up on an area and know where your citys name comes from.</div>
-        <div id="output2" class="column">
-            <div id="map"></div>
+        <div id="output1" class="column">
+            <h1>Book Summary - Leviathan</h1>
+            <p> Leviathan or The Matter, Forme and Power of a Common Wealth Ecclesiasticall and Civil—commonly referred to as Leviathan—is a book written by Thomas Hobbes (1588–1679) and published in 1651 (revised Latin edition 1668).[1][3][4] Its name derives from the biblical Leviathan. The work concerns the structure of society and legitimate government, and is regarded as one of the earliest and most influential examples of social contract theory.[5] Leviathan ranks as a classic western work on statecraft comparable to Machiavelli's The Prince. Written during the English Civil War (1642–1651), Leviathan argues for a social contract and rule by an absolute sovereign. Hobbes wrote that civil war and the brute situation of a state of nature ("the war of all against all") could only be avoided by strong, undivided government.</p>
         </div>
-        <div id="output3" class="column">
+        <div id="output2" class="column">
             <ul class="js-search-results">
-                <li>Interesting videos be here - well after you hit search!</li>
+                <h1>Author Summary</h1>
+                <li>Thomas Hobbes (/hɒbz/; 5 April 1588 – 4 December 1679), in some older texts Thomas Hobbes of Malmesbury,[a] was an English philosopher who is considered one of the founders of modern political philosophy.[1][2] Hobbes is best known for his 1651 book Leviathan, which established the social contract theory that has served as the foundation for most later Western political philosophy.[3] In addition to political philosophy, Hobbes also contributed to a diverse array of other fields, including history, geometry, the physics of gases, theology, ethics, and general philosophy.</li>
             </ul>
         </div>
     </section>
+    </section>
 
+
+    <!-- footer -->
+    <div class="footer">This footer will always be positioned at the bottom of the page, but not fixed.</div>
+
+    <!-- import jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
