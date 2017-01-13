@@ -8,8 +8,8 @@ var mongoose = require('mongoose');
 var config = require('./config');
 var app = express();
 var Item = require('./models/item');
-app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 
 /*declaration of api end points (app.get)*/
@@ -41,9 +41,10 @@ if (require.main === module) {
 };
 
 //external api call function
-var getFromApi = function (endpoint, args) {
+var getFromWikipedia = function (searchTerm, args) {
     var emitter = new events.EventEmitter();
-    unirest.get('https://api.spotify.com/v1/' + endpoint)
+    console.log("inside getFromWikipedia function");
+    unirest.get('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + '&format=json&callback=?')
         .qs(args)
         //after api call we get the response inside the "response" parameter
         .end(function (response) {
@@ -59,21 +60,23 @@ var getFromApi = function (endpoint, args) {
     return emitter;
 };
 
-app.get('/search/:name', , function (req, res) {
+app.get('/search/:name', function (req, res) {
+    
+    console.log("inside app get");
 
     //    external api function call and response
 
-    var searchReq = getFromApi('search', {
-        q: req.params.name,
-        limit: 1,
-        type: 'artist'
+    var searchReq = getFromWikipedia(req.params.name, {
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        dataType: "json"
     });
 
     //get the data from the first api call
     searchReq.on('end', function (item) {
 
         //get the artists and ID for use in next call
-        artist = item.artists.items[0];
+        res.json(item);
     });
 
     //error handling

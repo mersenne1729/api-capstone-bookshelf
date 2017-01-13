@@ -3,74 +3,389 @@
 // Get the modal
 var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+
+var booksArray = [
+    //Book 1
+    {
+        book: "A Discourse on the Method",
+        author: "René Descartes"
+    },
+    //Book 2
+    {
+        book: "A Philosophical Enquiry into the Origin of our Ideas of the Sublime and the Beautiful",
+        author: "Edmund Burke"
+    },
+    //Book 3
+    {
+        book: "An Enquiry concerning Human Understanding",
+        author: "David Hume"
+    },
+    //Book 4
+    {
+        book: "An Enquiry Concerning Political Justice",
+        author: "William Godwin"
+    },
+    //Book 5
+    {
+        book: "An Essay on the Principle of Population",
+        author: "Thomas Robert Malthus"
+    },
+    //Book 6
+    {
+        book: "Anselm of Canterbury: The Major Works",
+        author: "St Anselm"
+    },
+    //Book 7
+    {
+        book: "Beyond Good and Evil",
+        author: "Friedrich Nietzsche"
+    },
+    //Book 8
+    {
+        book: "Critique of Judgement",
+        author: "Immanuel Kant"
+    },
+    //Book 9
+    {
+        book: "Daodejing",
+        author: "Laozi "
+    },
+    //Book 10
+    {
+        book: "Defence of Socrates, Euthyphro, Crito",
+        author: "Plato"
+    },
+    //Book 11
+    {
+        book: "Dialogues and Essays",
+        author: "Seneca "
+    },
+    //Book 12
+    {
+        book: "Dialogues Concerning Natural Religion, and The Natural History of Religion",
+        author: "David Hume"
+    },
+    //Book 13
+    {
+        book: "Discourse on Political Economy and The Social Contract",
+        author: "Jean-Jacques Rousseau"
+    },
+    //Book 14
+    {
+        book: "Discourse on the Origin of Inequality",
+        author: "Jean-Jacques Rousseau"
+    },
+    //Book 15
+    {
+        book: "Discourses, Fragments, Handbook",
+        author: "Epictetus"
+    },
+    //Book 16
+    {
+        book: "Ecce Homo",
+        author: "Pontius Pilate"
+    },
+    //Book 17
+    {
+        book: "Gorgias",
+        author: "Plato"
+    },
+    //Book 18
+    {
+        book: "Leviathan",
+        author: "Thomas Hobbes "
+    },
+    //Book 19
+    {
+        book: "Meditations",
+        author: "Marcus Aurelius"
+    },
+    //Book 20
+    {
+        book: "Meditations on First Philosophy",
+        author: "René Descartes"
+    },
+    //Book 21
+    {
+        book: "Meno and Other Dialogues",
+        author: "Plato"
+    },
+    //Book 22
+    {
+        book: "Natural Theology",
+        author: "William Paley"
+    },
+    //Book 23
+    {
+        book: "On Liberty, Utilitarianism and Other Essays",
+        author: "John Stuart Mill"
+    },
+    //Book 24
+    {
+        book: "On the Genealogy of Morals",
+        author: "Friedrich Nietzsche"
+    },
+    //Book 25
+    {
+        book: "On the Nature of the Universe",
+        author: "Lucretius"
+    },
+    //Book 26
+    {
+        book: "Outlines of the Philosophy of Right",
+        author: "Georg Wilhelm Friedrich Hegel"
+    },
+    //Book 27
+    {
+        book: "Pensées and Other Writings",
+        author: "Blaise Pascal"
+    },
+    //Book 28
+    {
+        book: "Phaedo",
+        author: "Plato"
+    },
+    //Book 29
+    {
+        book: "Phaedrus",
+        author: "Plato"
+    },
+    //Book 30
+    {
+        book: "Principles of Human Knowledge and Three Dialogues",
+        author: "George Berkeley"
+    },
+    //Book 31
+    {
+        book: "Protagoras",
+        author: "Plato"
+    },
+    //Book 32
+    {
+        book: "Repetition and Philosophical Crumbs",
+        author: "Soren Kierkegaard"
+    },
+    //Book 33
+    {
+        book: "Republic",
+        author: "Plato"
+    },
+    //Book 34
+    {
+        book: "Reveries of the Solitary Walker",
+        author: "Jean-Jacques Rousseau"
+    },
+    //Book 35
+    {
+        book: "Sartor Resartus",
+        author: "Thomas Carlyle"
+    },
+    //Book 36
+    {
+        book: "Second Treatise of Government and A Letter Concerning Toleration",
+        author: "John Locke"
+    },
+    //Book 37
+    {
+        book: "Symposium",
+        author: "Plato"
+    },
+    //Book 38
+    {
+        book: "The Birth of Tragedy",
+        author: "Friedrich Nietzsche"
+    },
+    //Book 39
+    {
+        book: "The Communist Manifesto",
+        author: "karl marx"
+    },
+    //Book 40
+    {
+        book: "The Condition of the Working Class in England",
+        author: "Friedrich Engels"
+    },
+    //Book 41
+    {
+        book: "The Confessions",
+        author: "St. Augustine of Hippo"
+    },
+    //Book 42
+    {
+        book: "The Consolation of Philosophy",
+        author: "Boethius"
+    },
+    //Book 43
+    {
+        book: "The Elements of Law Natural and Politic. Part I: Human Nature; Part II: De Corpore Politico",
+        author: "Thomas Hobbes "
+    },
+    //Book 44
+    {
+        book: "The Eudemian Ethics",
+        author: "Aristotle"
+    },
+    //Book 45
+    {
+        book: "The Federalist Papers",
+        author: "Alexander Hamilton, James Madison, and John Jay"
+    },
+    //Book 46
+    {
+        book: "The Passions of the Soul and Other Late Philosophical Writings",
+        author: "René Descartes"
+    },
+    //Book 47
+    {
+        book: "The Politics",
+        author: "Aristotle"
+    },
+    //Book 48
+    {
+        book: "The Two Fundamental Problems of Ethics",
+        author: "Arthur Schopenhauer"
+    },
+    //Book 49
+    {
+        book: "The Varieties of Religious Experience",
+        author: "William James"
+    },
+    //Book 50
+    {
+        book: "Theaetetus",
+        author: "Plato"
+    },
+    //Book 51
+    {
+        book: "Three Early Modern Utopias",
+        author: "Thomas More"
+    },
+    //Book 52
+    {
+        book: "Thus Spoke Zarathustra",
+        author: "Friedrich Nietzsche"
+    },
+    //Book 53
+    {
+        book: "Timaeus and Critias",
+        author: "Plato"
+    },
+    //Book 54
+    {
+        book: "Twilight of the Idols",
+        author: "Friedrich Nietzsche"
     }
+];
+
+function populateBooksDropDown(inputArray) {
+
+    var htmlOutput = "";
+
+    htmlOutput += "<select id='query' >";
+
+
+
+    for (var counter = 0; counter < inputArray.length; counter++) {
+        htmlOutput += "<option value='" + inputArray[counter].author + "'>" + inputArray[counter].book + " ( " + inputArray[counter].author + " )</option>";
+    }
+    htmlOutput += "</select>";
+
+    $(".input-placeholder").html(htmlOutput);
 }
 
+
 //script to toggle class on scroll
-$(window).scroll(function () {
+$(window).scroll(function() {
     if ($(this).scrollTop() > 1) {
         $('header').addClass("sticky");
-    } else {
+    }
+    else {
         $('header').removeClass("sticky");
     }
 });
 
-//wiki api request
+$("#search-form").submit(function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+    //get the value from the input box
+    var userInput = $("#query").val();
+    //use that value to call the getResults function defined bellow
+    ajaxApiCall(userInput);
+});
 
-function searchWIki(searchTerm) {
-    var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm.split(',')[0] + "&format=json&callback=?";
+function ajaxApiCall(searchTerm) {
+
+    //console.log(searchTerm);
+
     $.ajax({
-        url: url,
-        type: 'GET',
-        contentType: "application/json; charset=utf-8",
-        async: false,
-        dataType: "json",
-        //  data drops here
-        success: function (data, status, jqXHR) {
-            //console.log(data);
-            $("#output1").html('');
-            for (var i = 0; i < data[1].length; i++) {
-                $("#output1").append("<div class='well'><a href=" + data[3][i] + "><h2>" + data[1][i] + "</h2>" + "<p>" + data[2][i] + "</p></a></div>");
-            }
-        }
-    })
+            type: "GET",
+            url: "/search/" + searchTerm,
+            dataType: 'json',
+        })
+        .done(function(result) {
+            //If successful, set some globals instead of using result object
+            // console.log(JSON.parse(result));
 
-    function displayYoutubeSearchResults(videosArray) {
-        //console.log(videosArray);
+            var resultsForJsonParse = result.substring(5, result.length - 1);
 
-        //create an empty variable to store one LI for each one the results
-        var buildTheHtmlOutput = "";
+            //console.log(JSON.parse(resultsForJsonParse));
 
-        $.each(videosArray, function (videosArrayKey, videosArrayValue) {
-            //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
-            buildTheHtmlOutput += "<li>";
-            buildTheHtmlOutput += "<p>" + videosArrayValue.snippet.title + "</p>"; //output vide title
-            buildTheHtmlOutput += "<a href='https://www.youtube.com/watch?v=" + videosArrayValue.id.videoId + "' target='_blank'>"; //taget blank is going to open the video in a new window
-            buildTheHtmlOutput += "<img src='" + videosArrayValue.snippet.thumbnails.high.url + "'/>"; //display video's thumbnail
-            buildTheHtmlOutput += "</a>";
-            buildTheHtmlOutput += "</li>";
+            displayYoutubeSearchResults(JSON.parse(resultsForJsonParse));
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
+}
 
-        $(".js-search-results").html(buildTheHtmlOutput);
+function displayYoutubeSearchResults(searchResults) {
+    console.log(searchResults.shift());
+
+    //create an empty variable to store one LI for each one the results
+    var buildTheHtmlOutput = "";
+    for (var countArrayLenght = 1; countArrayLenght < 4; countArrayLenght++) {
+        buildTheHtmlOutput += "<li>";
+
+        $.each(searchResults, function(searchResultKey, searchResultValue) {
+
+            console.log(searchResultKey, searchResultValue);
+
+            // console.log(searchResultValue);
+            //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
+            if (searchResultKey == 0) {
+                buildTheHtmlOutput += "<h2>" + searchResultValue[countArrayLenght] + "</h2>";
+            }
+            else if (searchResultKey == 1) {
+                buildTheHtmlOutput += "<p>" + searchResultValue[countArrayLenght] + "</p>";
+            }
+            else if (searchResultKey == 2) {
+                buildTheHtmlOutput += "<p><a href='" + searchResultValue[countArrayLenght] + "' target='_blank'>Detilas</a></p>";
+            }
+
+
+        });
+        buildTheHtmlOutput += "</li>";
     }
 
 
+    $(".js-search-results").html(buildTheHtmlOutput);
+}
 
-    $(function () {
-        // enter
-        $(".searchTerm").keypress(function (e) {
-            if (e.keyCode === 13) {
-                var searchTerm = $(".searchTerm").val();
-                searchWIki(searchTerm);
-            }
-        });
-        // click ajax call
-        $("#search").on("click", function () {
+
+
+$(function() {
+    populateBooksDropDown(booksArray);
+    // enter
+    $(".searchTerm").keypress(function(e) {
+        if (e.keyCode === 13) {
             var searchTerm = $(".searchTerm").val();
             searchWIki(searchTerm);
-        });
+        }
     });
+    // click ajax call
+    $("#search").on("click", function() {
+        var searchTerm = $(".searchTerm").val();
+        searchWIki(searchTerm);
+    });
+});
