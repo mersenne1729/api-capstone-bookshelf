@@ -12,7 +12,7 @@ var booksArray = [
     },
     //Book 2
     {
-        book: "A Philosophical Enquiry into the Origin of our Ideas of the Sublime and the Beautiful",
+        book: "A Philosophical Enquiry into the Origin of our Ideas",
         author: "Edmund Burke"
     },
     //Book 3
@@ -62,7 +62,7 @@ var booksArray = [
     },
     //Book 12
     {
-        book: "Dialogues Concerning Natural Religion, and The Natural History of Religion",
+        book: "Dialogues Concerning Natural Religion",
         author: "David Hume"
     },
     //Book 13
@@ -182,7 +182,7 @@ var booksArray = [
     },
     //Book 36
     {
-        book: "Second Treatise of Government and A Letter Concerning Toleration",
+        book: "Second Treatise of Government",
         author: "John Locke"
     },
     //Book 37
@@ -217,7 +217,7 @@ var booksArray = [
     },
     //Book 43
     {
-        book: "The Elements of Law Natural and Politic. Part I: Human Nature; Part II: De Corpore Politico",
+        book: "The Elements of Law Natural and Politic.",
         author: "Thomas Hobbes "
     },
     //Book 44

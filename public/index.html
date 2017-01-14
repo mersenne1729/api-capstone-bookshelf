@@ -7,6 +7,7 @@
 
     <!-- import google font -->
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English" rel="stylesheet">
 
 
     <!-- sheet links -->
@@ -32,16 +33,17 @@
     <!-- button to open the modal login form -->
    
 
-    <button id="login1" onclick="document.getElementById('id01').style.display='block'">Login</button>
+    
 
     <!-- the modal -->
     <div id="id01" class="modal">
+        
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
         <!-- modal content -->
         <form class="modal-content animate" action="action_page">
             <div class="imgcontainer">
-                <img src="/image/bill.jpg" alt="Pick An Avatar" class="avatar">
+                <img src="/image/hume.gif" alt="Pick An Avatar" class="avatar">
             </div>
 
             <div class="container">
@@ -51,9 +53,10 @@
                 <label><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
+
+
                 <button type="submit">Login</button>
-                <input type="checkbox" checked="checked"> Remember me
-            </div>
+                <input type="checkbox" checked="checked"> Remember me</div>
 
             <div class="login-container">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
@@ -63,6 +66,7 @@
     </div>
 
 
+
     <!-- wiki output -->
     <section class="container input-form">
         
@@ -70,12 +74,13 @@
             <div class="input-placeholder">
                 
             </div>
-            <!--<input id="query" type="text" placeholder="Enter search words..." />-->
+            
             <div>
                 <input class="myButton" type="submit" value="Search" id="submit" />
             </div>
 </form>
-        
+ 
+ <button id="login1" onclick="document.getElementById('id01').style.display='block'">Login</button>          
         <p> </p>
     </section>
 
