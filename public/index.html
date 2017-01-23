@@ -25,63 +25,37 @@
         <h1>
             <span id="baner1">Jeromes Bookshelf</span>
         </h1>
+
+        <form id="loginForm">
+
+            <!--<label><b>Username</b></label>-->
+            <input type="text" placeholder="Username" name="uname" required>
+
+            <!--<label><b>Password</b></label>-->
+            <input type="password" placeholder="Password" name="psw" required>
+
+            <button type="submit">Login</button>
+
+        </form>
+
     </header>
 
-    <!-- LOGIN -->
 
-
-
-    <!-- the modal -->
-    <div id="id01" class="modal">
-
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-        <!-- modal content -->
-        <form class="modal-content animate" action="action_page">
-            <div class="imgcontainer">
-                <img src="/image/hume.gif" alt="Pick An Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-
-
-                <button type="submit">Login</button>
-                <input type="checkbox" checked="checked"> Remember me</div>
-
-            <div class="login-container">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
-    </div>
-
-
-
-    <!-- wiki output -->
-    <section class="container input-form">
+    <section class="intro-text">
+        <p> Descartes's Meditations on First Philosophy continues to be a standard text at most university philosophy departments. Descartes's influence in mathematics is equally apparent; the Cartesian coordinate system—allowing reference to a point in space
+            as a set of numbers, and allowing algebraic equations to be expressed as geometric shapes in a two- or three-dimensional coordinate system (and conversely, shapes to be described as equations)—was named after him. He is credited as the father
+            of analytical geometry, the bridge between algebra and geometry, used in the discovery of infinitesimal calculus and analysis. Descartes was also one of the key figures in the scientific revolution. </p>
 
         <form id="search-form">
             <div class="input-placeholder">
-
             </div>
-
             <div>
-                <input class="myButton" type="submit" value="Search" id="submit" />
+                <button class="myButton" type="submit" value="Search" id="submit" />Search </buttton>
             </div>
         </form>
 
-        <!-- button to open the modal login form -->
-        <button id="login1" onclick="document.getElementById('id01').style.display='block'">Login</button>
-        <p> </p>
-
-
     </section>
+
 
     <section class="container">
         <div class="output">
@@ -98,8 +72,9 @@
     </section>
 
 
-    <!-- footer -->
+    <!-- footer 
     <footer>This footer will always be positioned at the bottom of the page, but not fixed.</footer>
+    -->
 
     <!-- import jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>

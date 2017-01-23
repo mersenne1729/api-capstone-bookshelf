@@ -97,7 +97,8 @@ app.get('/search/:name', function (req, res) {
     //    });
 });
 
-app.post('/items', function (req, res) {
+app.post('/favorites/:name', function (req, res) {
+    console.log(req.params.name);
 
     //db connection and data queries
     //    Item.create({

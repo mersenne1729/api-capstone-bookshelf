@@ -465,26 +465,18 @@ $("#search-form").submit(function(event) {
 });
 
 // add author to favorites
-
-$(document).on('click', '.addToFavoritesButton', function(event) {
+$("#search-form").submit(function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
-    var authorValue = $(this).parent().find('.addToFavoritesAuthorValue').val();
+    var userInput = $("#query").val();
     
-    console.log(authorValue);
-    $.ajax({
-            type: "POST",
-            url: "/favorites/" + authorValue,
-            dataType: 'json',
-        })
-        .done(function(result) {
-            //If successful, set some globals instead of using result object
-            console.log(JSON.parse(result));
-        })
-        .fail(function(jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
-        });
+    var authorAndBookNameArray = userInput.split(" - ");
+    
+    var authorName = authorAndBookNameArray[0];
+    var bookName = authorAndBookNameArray[1];
+    
+    //use that value to call the getResults function defined bellow
+    ajaxWikipediaAuthorSearch(authorName);
+    ajaxWikipediaBookSearch(bookName);
 });

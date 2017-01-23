@@ -43,6 +43,9 @@
     -o-padding-end: 0px;
 }
 
+
+/*general style*/
+
 html {
     margin: 0;
     padding: 0;
@@ -58,57 +61,110 @@ body {
     background-repeat: no-repeat;
 }
 
-header {
-    text-align: center;
-    font-size: 72px;
-    line-height: 108px;
-    height: 108px;
-    background: #0a2d1b;
+button {
+    background-color: #4CAF50;
     color: #D7DEE0;
-    font-family: 'IM Fell English', serif;
-    /*    set animation*/
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-
-header.sticky {
-    z-index: 1000;
-    position: fixed;
-    font-size: 22px;
-    line-height: 48px;
-    height: 48px;
-    width: 100%;
-    background: #0a2d1b;
-    text-align: left;
-    padding-left: 20px;
-}
-
-.imgcontainer {
-    text-align: center;
-}
-
-.myButton {
-    font-family: 'IM Fell English', serif;
-    background-color: #4CAF50;
-    background-color: #4CAF50;
-    color: white;
     padding: 6px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
+    font-family: 'IM Fell English', serif;
+    display: inline-block;
 }
+
+
+/*header style*/
+
+header {
+    text-align: left;
+    font-size: 35px;
+    line-height: 80px;
+    height: 80px;
+    background: #0a2d1b;
+    color: #D7DEE0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-family: 'IM Fell English', serif;
+    /*    set animation
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;*/
+}
+
+header h1 {
+    display: inline-block;
+    width: auto;
+}
+
+header form {
+    display: inline-block;
+    width: auto;
+    float: right;
+    padding-top: 15px;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+header input {
+    padding: 10px;
+    font-size: 15px;
+    width: 120px;
+    border-radius: 10px;
+}
+
+header button {
+    padding: 10px;
+    font-size: 15px;
+    width: 60px;
+    border-radius: 10px;
+}
+
+
+/*content styles */
 
 section {
     color: #D7DEE0;
     text-align: center;
 }
-.output {
+
+.intro-text {
+    text-align: left;
+    text-align: justify;
+    width: 40%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 15px;
+    display: block;
+    font-family: 'IM Fell English', serif;
+    background-image: url(/image/transparent.jpg);
+    color: white;
+}
+
+.intro-text #search-form {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.intro-text #search-form .input-placeholder #query {
+    font-family: 'IM Fell English', serif;
+    background-color: gray;
+    width: 100%;
+}
+
+.intro-text #search-form .myButton {
+    margin-top: 1rem;
+    padding: 10px;
+    font-size: 15px;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.container .output {
     width: 80%;
     margin: 0 auto;
 }
 
-.js-author-results,
-.js-book-results {
+.container .output .js-author-results,
+.container .output .js-book-results {
     width: 48%;
     vertical-align: top;
     margin: 0.5rem 0.5%;
@@ -118,8 +174,10 @@ section {
     max-height: 700px;
 }
 
-.js-author-results li,
-.js-book-results li {
+.container .output .js-author-results li,
+.container .output .js-book-results li {
+    text-align: left;
+    text-align: justify;
     width: 100%;
     margin-bottom: 0.5rem;
     padding: 1rem;
@@ -136,132 +194,65 @@ section {
     transition-property: transform;
 }
 
-.js-author-results li h2,
-.js-book-results li h2 {
+.container .output .js-author-results li h2,
+.container .output .js-book-results li h2 {
     font-size: 2rem;
     display: inline-block;
     vertical-align: middle;
     font-family: 'IM Fell English', serif;
 }
 
-
-/**/
-
-.login-container {
-    background-color: gray;
+.container .output .js-author-results li h2 .results-icon,
+.container .output .js-book-results li h2 .results-icon {
+    width: 30px;
+    margin-right: 1rem;
 }
 
-#query {
-    font-family: 'IM Fell English', serif;
-    background-color: gray;
-    width: 30%;
-}
-
-footer {
-    padding: 1rem;
-    background-color: #0a2d1b;
-    text-align: center;
-    color: aliceblue;
-    font-family: 'IM Fell English', serif;
-}
-
-
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-    padding-top: 60px;
-}
-
-
-/* Modal Content/Box */
-
-.modal-content {
-    background-color: gray;
-    margin: 5px auto;
-    /* 15% from the top and centered */
-    border: 1px solid #888;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-}
-
-
-/* The Close Button */
-
-.close {
-    /* Position it in the top right corner outside of the modal */
+.container .output .js-author-results li .favorites,
+.container .output .js-book-results li .favorites {
     position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
+    right: 10px;
+    top:10px;
+    float:right;
 }
 
-
-/* Close button on hover */
-
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
-
-
-/* Add Zoom Animation */
-
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {
-        -webkit-transform: scale(0)
-    }
-    to {
-        -webkit-transform: scale(1)
-    }
-}
-
-@keyframes animatezoom {
-    from {
-        transform: scale(0)
-    }
-    to {
-        transform: scale(1)
-    }
-}
-
-.imgcontainer {
-    background-color: #0a2d1b;
-    color: aliceblue;
-}
-
-button {
-    background-color: #4CAF50;
-    color: #D7DEE0;
-    padding: 6px;
-    margin: 8px 0;
+.container .output .js-author-results li .favorites .addToFavoritesButton,
+.container .output .js-book-results li .favorites .addToFavoritesButton {
+    background-color: transparent !important;
     border: none;
     cursor: pointer;
     font-family: 'IM Fell English', serif;
-    display: inline-block;
+    display: block;
+    width:auto;
 }
+
+
+.container .output .js-author-results li .favorites .add-favourite-icon,
+.container .output .js-book-results li .favorites .add-favourite-icon {
+    width: 25px;
+    margin-right: 1rem;
+}
+
+
+/*footer styles*/
+
+
+/*footer {*/
+
+
+/*    padding: 1rem;*/
+
+
+/*    background-color: #0a2d1b;*/
+
+
+/*    text-align: center;*/
+
+
+/*    color: aliceblue;*/
+
+
+/*    font-family: 'IM Fell English', serif;*/
+
+
+/*}*/
