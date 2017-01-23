@@ -43,7 +43,7 @@ if (require.main === module) {
 //external api call function
 var getFromWikipedia = function (searchTerm, args) {
     var emitter = new events.EventEmitter();
-    console.log("inside getFromWikipedia function");
+    //console.log("inside getFromWikipedia function");
     unirest.get('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + searchTerm + '&format=json&callback=?')
         .qs(args)
         //after api call we get the response inside the "response" parameter
@@ -62,7 +62,7 @@ var getFromWikipedia = function (searchTerm, args) {
 
 app.get('/search/:name', function (req, res) {
     
-    console.log("inside app get");
+    //console.log("inside app get");
 
     //    external api function call and response
 

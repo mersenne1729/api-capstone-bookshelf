@@ -11,7 +11,7 @@
 
 
     <!-- sheet links -->
-    
+
     <link rel="stylesheet" type="text/css" href="main.css">
 
 
@@ -23,21 +23,17 @@
 <body>
     <header class="container header">
         <h1>
-                <span id="baner1">Jeromes Bookshelf</span>
-            </h1>
+            <span id="baner1">Jeromes Bookshelf</span>
+        </h1>
     </header>
 
     <!-- LOGIN -->
 
 
-    <!-- button to open the modal login form -->
-   
-
-    
 
     <!-- the modal -->
     <div id="id01" class="modal">
-        
+
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
         <!-- modal content -->
@@ -69,28 +65,31 @@
 
     <!-- wiki output -->
     <section class="container input-form">
-        
+
         <form id="search-form">
             <div class="input-placeholder">
-                
+
             </div>
-            
+
             <div>
                 <input class="myButton" type="submit" value="Search" id="submit" />
             </div>
-</form>
- 
- <button id="login1" onclick="document.getElementById('id01').style.display='block'">Login</button>          
+        </form>
+
+        <!-- button to open the modal login form -->
+        <button id="login1" onclick="document.getElementById('id01').style.display='block'">Login</button>
         <p> </p>
+
+
     </section>
 
-    <section class="container output">
-        <!--<div id="output1" class="column">-->
-        <!--    <h1>Book Summary - Leviathan</h1>-->
-        <!--    <p> </p>-->
-        <!--</div>-->
-        <div id="output2" class="column">
-            <ul class="js-search-results">
+    <section class="container">
+        <div class="output">
+            <ul class="js-author-results">
+                <!--<h1></h1>-->
+                <!--<li>Thomas Hobbes (/hɒbz/; 5 April 1588 – 4 December 1679), in some older texts Thomas Hobbes of Malmesbury,[a] was an English philosopher who is considered one of the founders of modern political philosophy.[1][2] Hobbes is best known for his 1651 book Leviathan, which established the social contract theory that has served as the foundation for most later Western political philosophy.[3] In addition to political philosophy, Hobbes also contributed to a diverse array of other fields, including history, geometry, the physics of gases, theology, ethics, and general philosophy.</li>-->
+            </ul>
+            <ul class="js-book-results">
                 <!--<h1></h1>-->
                 <!--<li>Thomas Hobbes (/hɒbz/; 5 April 1588 – 4 December 1679), in some older texts Thomas Hobbes of Malmesbury,[a] was an English philosopher who is considered one of the founders of modern political philosophy.[1][2] Hobbes is best known for his 1651 book Leviathan, which established the social contract theory that has served as the foundation for most later Western political philosophy.[3] In addition to political philosophy, Hobbes also contributed to a diverse array of other fields, including history, geometry, the physics of gases, theology, ethics, and general philosophy.</li>-->
             </ul>
@@ -106,4 +105,5 @@
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script src="client.js"></script>
 </body>
+
 </html>

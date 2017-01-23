@@ -283,10 +283,8 @@ function populateBooksDropDown(inputArray) {
 
     htmlOutput += "<select id='query' >";
 
-
-
     for (var counter = 0; counter < inputArray.length; counter++) {
-        htmlOutput += "<option value='" + inputArray[counter].author + "'>" + inputArray[counter].book + " ( " + inputArray[counter].author + " )</option>";
+        htmlOutput += "<option value='" + inputArray[counter].author + " - " + inputArray[counter].book + "'>" + inputArray[counter].book + " ( " + inputArray[counter].author + " )</option>";
     }
     htmlOutput += "</select>";
 
@@ -304,16 +302,9 @@ $(window).scroll(function() {
     }
 });
 
-$("#search-form").submit(function(event) {
-    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
-    event.preventDefault();
-    //get the value from the input box
-    var userInput = $("#query").val();
-    //use that value to call the getResults function defined bellow
-    ajaxApiCall(userInput);
-});
+////////author search///////////////////////////
 
-function ajaxApiCall(searchTerm) {
+function ajaxWikipediaAuthorSearch(searchTerm) {
 
     //console.log(searchTerm);
 
@@ -330,7 +321,7 @@ function ajaxApiCall(searchTerm) {
 
             //console.log(JSON.parse(resultsForJsonParse));
 
-            displayYoutubeSearchResults(JSON.parse(resultsForJsonParse));
+            displayWikipediaAuthorResults(JSON.parse(resultsForJsonParse));
         })
         .fail(function(jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -339,53 +330,126 @@ function ajaxApiCall(searchTerm) {
         });
 }
 
-function displayYoutubeSearchResults(searchResults) {
-    console.log(searchResults.shift());
-
+function displayWikipediaAuthorResults(searchResults) {
+    
+    var excludeFirstElement = searchResults.shift();
+    
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
-    for (var countArrayLenght = 1; countArrayLenght < 4; countArrayLenght++) {
+    for (var countArrayLenght = 0; countArrayLenght < 4; countArrayLenght++) {
+        
         buildTheHtmlOutput += "<li>";
 
         $.each(searchResults, function(searchResultKey, searchResultValue) {
 
-            console.log(searchResultKey, searchResultValue);
+            if((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght]  !== undefined))  {
 
-            // console.log(searchResultValue);
-            //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
-            if (searchResultKey == 0) {
-                buildTheHtmlOutput += "<h2>" + searchResultValue[countArrayLenght] + "</h2>";
+                // console.log(searchResultValue);
+                //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
+                if (searchResultKey == 0) {
+                    buildTheHtmlOutput += "<h2>" + searchResultValue[countArrayLenght] + "</h2>";
+                }
+                else if (searchResultKey == 1) {
+                    buildTheHtmlOutput += "<p>" + searchResultValue[countArrayLenght] + "</p>";
+                }
+                else if (searchResultKey == 2) {
+                    buildTheHtmlOutput += "<p><a href='" + searchResultValue[countArrayLenght] + "' target='_blank'>Detilas</a></p>";
+                }
             }
-            else if (searchResultKey == 1) {
-                buildTheHtmlOutput += "<p>" + searchResultValue[countArrayLenght] + "</p>";
-            }
-            else if (searchResultKey == 2) {
-                buildTheHtmlOutput += "<p><a href='" + searchResultValue[countArrayLenght] + "' target='_blank'>Detilas</a></p>";
-            }
-
-
         });
         buildTheHtmlOutput += "</li>";
     }
+    
+    var excludeEmptyLIs = buildTheHtmlOutput.replace(/<li><\/li>/g,'');
+
+    $(".js-author-results").html(excludeEmptyLIs);
+}
 
 
-    $(".js-search-results").html(buildTheHtmlOutput);
+////////book search///////////////////////////
+
+function ajaxWikipediaBookSearch(searchTerm) {
+
+    //console.log(searchTerm);
+
+    $.ajax({
+            type: "GET",
+            url: "/search/" + searchTerm,
+            dataType: 'json',
+        })
+        .done(function(result) {
+            //If successful, set some globals instead of using result object
+            // console.log(JSON.parse(result));
+
+            var resultsForJsonParse = result.substring(5, result.length - 1);
+
+            //console.log(JSON.parse(resultsForJsonParse));
+
+            displayWikipediaBookResults(JSON.parse(resultsForJsonParse));
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+
+function displayWikipediaBookResults(searchResults) {
+    
+     var excludeFirstElement = searchResults.shift();
+    
+    //create an empty variable to store one LI for each one the results
+    var buildTheHtmlOutput = "";
+    for (var countArrayLenght = 0; countArrayLenght < 4; countArrayLenght++) {
+        
+        buildTheHtmlOutput += "<li>";
+
+        $.each(searchResults, function(searchResultKey, searchResultValue) {
+
+            if((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght]  !== undefined))  {
+
+                // console.log(searchResultValue);
+                //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
+                if (searchResultKey == 0) {
+                    buildTheHtmlOutput += "<h2>" + searchResultValue[countArrayLenght] + "</h2>";
+                }
+                else if (searchResultKey == 1) {
+                    buildTheHtmlOutput += "<p>" + searchResultValue[countArrayLenght] + "</p>";
+                }
+                else if (searchResultKey == 2) {
+                    buildTheHtmlOutput += "<p><a href='" + searchResultValue[countArrayLenght] + "' target='_blank'>Detilas</a></p>";
+                }
+            }
+        });
+        buildTheHtmlOutput += "</li>";
+    }
+    
+    var excludeEmptyLIs = buildTheHtmlOutput.replace(/<li><\/li>/g,'');
+
+    $(".js-book-results").html(excludeEmptyLIs);
 }
 
 
 
 $(function() {
     populateBooksDropDown(booksArray);
-    // enter
-    $(".searchTerm").keypress(function(e) {
-        if (e.keyCode === 13) {
-            var searchTerm = $(".searchTerm").val();
-            searchWIki(searchTerm);
-        }
-    });
-    // click ajax call
-    $("#search").on("click", function() {
-        var searchTerm = $(".searchTerm").val();
-        searchWIki(searchTerm);
-    });
+    
+});
+
+$("#search-form").submit(function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+    //get the value from the input box
+    var userInput = $("#query").val();
+    
+    var authorAndBookNameArray = userInput.split(" - ");
+    
+    var authorName = authorAndBookNameArray[0];
+    var bookName = authorAndBookNameArray[1];
+    
+    // console.log("authorName = ", authorName);
+    // console.log("bookName = ", bookName);
+    //use that value to call the getResults function defined bellow
+    ajaxWikipediaAuthorSearch(authorName);
+    ajaxWikipediaBookSearch(bookName);
 });

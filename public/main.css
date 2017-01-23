@@ -5,7 +5,6 @@
     font-size: 100%;
     /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
     box-sizing: border-box;
-
     /*reset Chrome user agent styles*/
     -webkit-margin-before: 0px;
     -webkit-margin-after: 0px;
@@ -15,7 +14,6 @@
     -webkit-padding-after: 0px;
     -webkit-padding-start: 0px;
     -webkit-padding-end: 0px;
-
     /*reset Firefox user agent styles*/
     -moz-margin-before: 0px;
     -moz-margin-after: 0px;
@@ -25,7 +23,6 @@
     -moz-padding-after: 0px;
     -moz-padding-start: 0px;
     -moz-padding-end: 0px;
-
     /*reset Internet Explorer user agent styles*/
     -ms-margin-before: 0px;
     -ms-margin-after: 0px;
@@ -35,7 +32,6 @@
     -ms-padding-after: 0px;
     -ms-padding-start: 0px;
     -ms-padding-end: 0px;
-
     /*reset Opera user agent styles*/
     -o-margin-before: 0px;
     -o-margin-after: 0px;
@@ -46,7 +42,6 @@
     -o-padding-start: 0px;
     -o-padding-end: 0px;
 }
-
 
 html {
     margin: 0;
@@ -71,56 +66,65 @@ header {
     background: #0a2d1b;
     color: #D7DEE0;
     font-family: 'IM Fell English', serif;
-      
-     /*    set animation*/
+    /*    set animation*/
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
 
 header.sticky {
+    z-index: 1000;
     position: fixed;
     font-size: 22px;
     line-height: 48px;
     height: 48px;
     width: 100%;
-    background: #efc47D;
+    background: #0a2d1b;
     text-align: left;
     padding-left: 20px;
 }
 
 .imgcontainer {
-   text-align: center;  
-    
+    text-align: center;
 }
 
 .myButton {
-font-family: 'IM Fell English', serif;  
-background-color: #4CAF50;
-background-color: #4CAF50;
-color: white;
-padding: 6px;
-margin: 8px 0;
-border: none;
-cursor: pointer;
+    font-family: 'IM Fell English', serif;
+    background-color: #4CAF50;
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }
-
 
 section {
     color: #D7DEE0;
     text-align: center;
 }
-.js-search-results{
-    width: 80%;margin:0 auto;
-    font-family: 'IM Fell English', serif;
+.output {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.js-search-results li{
-    width: 31%;
-    margin: 0.5rem 0.5%;
+.js-author-results,
+.js-book-results {
+    width: 48%;
     vertical-align: top;
+    margin: 0.5rem 0.5%;
+    display: inline-block;
+    font-family: 'IM Fell English', serif;
+    overflow-y: auto;
+    max-height: 700px;
+}
+
+.js-author-results li,
+.js-book-results li {
+    width: 100%;
+    margin-bottom: 0.5rem;
     padding: 1rem;
     border-radius: 15px;
-    display: inline-block;
+    display: block;
     font-family: 'IM Fell English', serif;
     background-image: url("/image/transparent.jpg");
     -webkit-transform: perspective(1px) translateZ(0);
@@ -130,17 +134,18 @@ section {
     transition-duration: 0.3s;
     -webkit-transition-property: transform;
     transition-property: transform;
- }
+}
 
-
-.js-search-results li h2{
+.js-author-results li h2,
+.js-book-results li h2 {
     font-size: 2rem;
-     display: inline-block;
-     vertical-align: middle;
-     font-family: 'IM Fell English', serif;
-    }
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'IM Fell English', serif;
+}
 
-  /**/
+
+/**/
 
 .login-container {
     background-color: gray;
@@ -150,28 +155,15 @@ section {
     font-family: 'IM Fell English', serif;
     background-color: gray;
     width: 30%;
-    
 }
-    
+
 footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
     padding: 1rem;
     background-color: #0a2d1b;
     text-align: center;
     color: aliceblue;
     font-family: 'IM Fell English', serif;
-    
-    
 }
-
-#output1 {
-    background-image: url("/image/transparent.jpg");
-}
-
-
 
 
 /* The Modal (background) */
@@ -272,8 +264,4 @@ button {
     cursor: pointer;
     font-family: 'IM Fell English', serif;
     display: inline-block;
-    
 }
-
-
-
