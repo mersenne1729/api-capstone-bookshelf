@@ -97,20 +97,24 @@ app.get('/search/:name', function (req, res) {
     //    });
 });
 
-app.post('/favorites/:name', function (req, res) {
-    console.log(req.params.name);
+app.post('/favorites', function (req, res) {
+    
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    console.log(req.body);
 
     //db connection and data queries
-    //    Item.create({
-    //        name: req.body.name
-    //    }, function (err, item) {
-    //        if (err) {
-    //            return res.status(500).json({
-    //                message: 'Internal Server Error'
-    //            });
-    //        }
-    //        res.status(201).json(item);
-    //    });
+        Item.create({
+            name: req.body.name
+        }, function (err, item) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Internal Server Error'
+                });
+            }
+            res.status(201).json(item);
+        });
 });
 
 /*server settings (listener)*/

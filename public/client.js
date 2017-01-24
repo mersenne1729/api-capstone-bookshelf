@@ -472,15 +472,29 @@ $(document).on('click', '.addToFavoritesButton', function(event) {
     //get the value from the input box
     var authorValue = $(this).parent().find('.addToFavoritesAuthorValue').val();
     
-    console.log(authorValue);
+    
+    var nameObject = {
+        'name': authorValue
+    }
+    console.log(nameObject);
+    
+    
+    //!!!nameObject acts as if is nto sent properly to the server js
     $.ajax({
+        //     beforeSend: function(xhrObj){
+        //     xhrObj.setRequestHeader("Content-Type","application/json");
+        //     xhrObj.setRequestHeader("Accept","application/json");
+        // },
+
+            url: "/favorites",
             type: "POST",
-            url: "/favorites/" + authorValue,
-            dataType: 'json',
+            data: nameObject,
+            dataType: 'json'
         })
         .done(function(result) {
             //If successful, set some globals instead of using result object
-            console.log(JSON.parse(result));
+            //console.log(JSON.parse(result));
+            console.log(result);
         })
         .fail(function(jqXHR, error, errorThrown) {
             console.log(jqXHR);
