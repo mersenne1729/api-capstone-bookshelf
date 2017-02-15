@@ -99,14 +99,15 @@ app.get('/search/:name', function (req, res) {
 
 app.post('/favorites', function (req, res) {
     
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    // res.header("Access-Control-Allow-Origin", "*");
+    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-    console.log(req.body);
+    console.log("request body = ", req.body);
 
     //db connection and data queries
         Item.create({
-            name: req.body.name
+            name: req.body.name,
+            type: req.body.type
         }, function (err, item) {
             if (err) {
                 return res.status(500).json({
@@ -117,4 +118,29 @@ app.post('/favorites', function (req, res) {
         });
 });
 
+app.get('/populate-favorites', function (req, res) {
+    Item.find(function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
+});
+
+app.delete('/delete-favorites', function (req, res) {
+    Item.remove(req.params.id, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(200).json(items);
+    });
+});
+
 /*server settings (listener)*/
+// exports.app = app;
+// exports.runServer = runServer;
+// app.listen(process.env.PORT, process.env.IP);

@@ -117,6 +117,65 @@ header button {
     width: 60px;
     border-radius: 10px;
 }
+header .favoritesContainer{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    z-index: 1000;
+    text-align: left;
+    width: 230px;
+    margin: 0;
+    padding: 15px;
+    border-radius: 15px;
+    display: block;
+    font-family: 'IM Fell English', serif;
+    background-image: url(/image/transparent.jpg);
+    color: white;
+}
+
+header .favoritesContainer .favoritesContainerColum {
+    display: inline-block;
+    width: 40px;
+}
+header .favoritesContainer .favoritesContainerAuthor {
+    width: 135px;
+}
+
+header .favoritesContainer h2 {
+    font-size: 20px; 
+    line-height: 18px;
+    font-weight: bold;
+}
+
+header .favoritesContainer h2 .clearFavoritesButton {
+    float:right;
+    background-color: transparent !important;
+    border: none;
+    cursor: pointer;
+    font-family: 'IM Fell English', serif;
+    display: block;
+    width:auto;
+    margin: 0;
+    padding: 0;
+}
+
+header .favoritesContainer h2 .clearFavoritesButton img{
+    width: 20px;
+}
+
+header .favoritesContainer ul {
+    list-style: none;
+}
+
+header .favoritesContainer li {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+header .favoritesContainer li .results-icon {
+    width: 30px;
+    margin-right: 1rem;
+}
 
 
 /*content styles */

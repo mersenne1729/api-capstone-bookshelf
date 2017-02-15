@@ -320,18 +320,18 @@ function ajaxWikipediaAuthorSearch(searchTerm) {
 }
 
 function displayWikipediaAuthorResults(searchResults) {
-    
+
     var excludeFirstElement = searchResults.shift();
-    
+
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
     for (var countArrayLenght = 0; countArrayLenght < 4; countArrayLenght++) {
-        
+
         buildTheHtmlOutput += "<li>";
 
         $.each(searchResults, function(searchResultKey, searchResultValue) {
 
-            if((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght]  !== undefined))  {
+            if ((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght] !== undefined)) {
 
                 // console.log(searchResultValue);
                 //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
@@ -344,8 +344,8 @@ function displayWikipediaAuthorResults(searchResults) {
                     buildTheHtmlOutput += "</button>";
                     buildTheHtmlOutput += "</form>";
                     buildTheHtmlOutput += "</div>";
-                    
-                    
+
+
                     buildTheHtmlOutput += "<h2><img src='/image/author-icon.gif' class='results-icon'>" + searchResultValue[countArrayLenght] + "</h2>";
                 }
                 else if (searchResultKey == 1) {
@@ -358,8 +358,8 @@ function displayWikipediaAuthorResults(searchResults) {
         });
         buildTheHtmlOutput += "</li>";
     }
-    
-    var excludeEmptyLIs = buildTheHtmlOutput.replace(/<li><\/li>/g,'');
+
+    var excludeEmptyLIs = buildTheHtmlOutput.replace(/<li><\/li>/g, '');
 
     $(".js-author-results").html(excludeEmptyLIs);
 }
@@ -394,23 +394,23 @@ function ajaxWikipediaBookSearch(searchTerm) {
 }
 
 function displayWikipediaBookResults(searchResults) {
-    
-     var excludeFirstElement = searchResults.shift();
-    
+
+    var excludeFirstElement = searchResults.shift();
+
     //create an empty variable to store one LI for each one the results
     var buildTheHtmlOutput = "";
     for (var countArrayLenght = 0; countArrayLenght < 4; countArrayLenght++) {
-        
+
         buildTheHtmlOutput += "<li>";
 
         $.each(searchResults, function(searchResultKey, searchResultValue) {
 
-            if((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght]  !== undefined))  {
+            if ((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght] !== undefined)) {
 
                 // console.log(searchResultValue);
                 //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
                 if (searchResultKey == 0) {
-                    
+
                     buildTheHtmlOutput += "<div class='favorites'>";
                     buildTheHtmlOutput += "<form class='addBookToFavorites'>";
                     buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesBookValue' value='" + searchResultValue[countArrayLenght] + "'>";
@@ -419,8 +419,8 @@ function displayWikipediaBookResults(searchResults) {
                     buildTheHtmlOutput += "</button>";
                     buildTheHtmlOutput += "</form>";
                     buildTheHtmlOutput += "</div>";
-                    
-                    
+
+
                     buildTheHtmlOutput += "<h2><img src='/image/book-icon.gif' class='results-icon'>" + searchResultValue[countArrayLenght] + "</h2>";
                 }
                 else if (searchResultKey == 1) {
@@ -433,17 +433,55 @@ function displayWikipediaBookResults(searchResults) {
         });
         buildTheHtmlOutput += "</li>";
     }
-    
-    var excludeEmptyLIs = buildTheHtmlOutput.replace(/<li><\/li>/g,'');
+
+    var excludeEmptyLIs = buildTheHtmlOutput.replace(/<li><\/li>/g, '');
 
     $(".js-book-results").html(excludeEmptyLIs);
 }
 
+//populate favorites container
+function populateFavoritesContainer() {
 
+    //console.log(searchTerm);
+
+    $.ajax({
+            type: "GET",
+            url: "/populate-favorites/",
+            dataType: 'json',
+            contentType: 'application/json'
+        })
+        .done(function(result) {
+            //If successful, set some globals instead of using result object
+            console.log(result);
+
+
+            var buildTheHtmlOutput = "";
+
+            $.each(result, function(resultKey, resultValue) {
+
+                buildTheHtmlOutput += "<li>";
+                buildTheHtmlOutput += "<div class='favoritesContainerColum'>";
+                buildTheHtmlOutput += "<img src='/image/" + resultValue.type + "-icon.gif' class='results-icon'>";
+                buildTheHtmlOutput += "</div>";
+                buildTheHtmlOutput += "<div class='favoritesContainerColum favoritesContainerAuthor'>";
+                buildTheHtmlOutput += resultValue.name;
+                buildTheHtmlOutput += "</div>";
+                buildTheHtmlOutput += "</li>";
+
+            })
+            $(".favoritesContainer ul").html(buildTheHtmlOutput);
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
 
 $(function() {
     populateBooksDropDown(booksArray);
-    
+    populateFavoritesContainer();
+
 });
 
 //display search results
@@ -453,12 +491,12 @@ $("#search-form").submit(function(event) {
     event.preventDefault();
     //get the value from the input box
     var userInput = $("#query").val();
-    
+
     var authorAndBookNameArray = userInput.split(" - ");
-    
+
     var authorName = authorAndBookNameArray[0];
     var bookName = authorAndBookNameArray[1];
-    
+
     //use that value to call the getResults function defined bellow
     ajaxWikipediaAuthorSearch(authorName);
     ajaxWikipediaBookSearch(bookName);
@@ -466,35 +504,79 @@ $("#search-form").submit(function(event) {
 
 // add author to favorites
 
-$(document).on('click', '.addToFavoritesButton', function(event) {
+$(document).on('click', '.js-author-results .addToFavoritesButton', function(event) {
     //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
     //get the value from the input box
     var authorValue = $(this).parent().find('.addToFavoritesAuthorValue').val();
-    
-    
-    var nameObject = {
-        'name': authorValue
-    }
-    console.log(nameObject);
-    
-    
-    //!!!nameObject acts as if is nto sent properly to the server js
-    $.ajax({
-        //     beforeSend: function(xhrObj){
-        //     xhrObj.setRequestHeader("Content-Type","application/json");
-        //     xhrObj.setRequestHeader("Accept","application/json");
-        // },
 
-            url: "/favorites",
-            type: "POST",
-            data: nameObject,
-            dataType: 'json'
+
+    var nameObject = {
+        'name': authorValue,
+        'type': 'author'
+    };
+
+    $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(nameObject),
+            url: '/favorites/',
         })
         .done(function(result) {
-            //If successful, set some globals instead of using result object
-            //console.log(JSON.parse(result));
             console.log(result);
+            populateFavoritesContainer();
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+});
+
+$(document).on('click', '.js-book-results .addToFavoritesButton', function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+    //get the value from the input box
+    var bookValue = $(this).parent().find('.addToFavoritesBookValue').val();
+
+
+    var nameObject = {
+        'name': bookValue,
+        'type': 'book'
+    };
+
+    $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(nameObject),
+            url: '/favorites/',
+        })
+        .done(function(result) {
+            console.log(result);
+            populateFavoritesContainer();
+        })
+        .fail(function(jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+});
+
+$(document).on('click', '.clearFavoritesButton', function(event) {
+    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
+    event.preventDefault();
+
+    $.ajax({
+            method: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/delete-favorites',
+        })
+        .done(function(result) {
+            console.log(result);
+            populateFavoritesContainer();
         })
         .fail(function(jqXHR, error, errorThrown) {
             console.log(jqXHR);
