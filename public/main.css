@@ -3,6 +3,7 @@
     padding: 0;
     border: 0;
     font-size: 100%;
+    text-decoration: none;
     /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
     box-sizing: border-box;
     /*reset Chrome user agent styles*/
@@ -205,8 +206,8 @@ section {
 }
 
 .intro-text #search-form .input-placeholder #query {
-    font-family: 'IM Fell English', serif;
-    background-color: gray;
+    font-family: Roboto, serif;
+    background-color: white;
     width: 100%;
 }
 
@@ -229,7 +230,7 @@ section {
     vertical-align: top;
     margin: 0.5rem 0.5%;
     display: inline-block;
-    font-family: 'IM Fell English', serif;
+    font-family: Roboto, serif;
     overflow-y: auto;
     max-height: 700px;
 }
@@ -243,7 +244,7 @@ section {
     padding: 1rem;
     border-radius: 15px;
     display: block;
-    font-family: 'IM Fell English', serif;
+    font-family: Roboto, serif;
     background-image: url("/image/transparent.jpg");
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
@@ -259,7 +260,7 @@ section {
     font-size: 2rem;
     display: inline-block;
     vertical-align: middle;
-    font-family: 'IM Fell English', serif;
+    font-family: Roboto, serif;
 }
 
 .container .output .js-author-results li h2 .results-icon,
@@ -294,25 +295,3 @@ section {
 }
 
 
-/*footer styles*/
-
-
-/*footer {*/
-
-
-/*    padding: 1rem;*/
-
-
-/*    background-color: #0a2d1b;*/
-
-
-/*    text-align: center;*/
-
-
-/*    color: aliceblue;*/
-
-
-/*    font-family: 'IM Fell English', serif;*/
-
-
-/*}*/
