@@ -62,7 +62,6 @@ var getFromWikipedia = function (searchTerm, args) {
 
 app.get('/search/:name', function (req, res) {
     
-    //console.log("inside app get");
 
     //    external api function call and response
 
@@ -84,23 +83,10 @@ app.get('/search/:name', function (req, res) {
         res.sendStatus(code);
     });
 
-
-    //db connection and data queries
-
-    //    Item.find(function (err, items) {
-    //        if (err) {
-    //            return res.status(500).json({
-    //                message: 'Internal Server Error'
-    //            });
-    //        }
-    //        res.status(200).json(items);
-    //    });
 });
 
 app.post('/favorites', function (req, res) {
     
-    // res.header("Access-Control-Allow-Origin", "*");
-    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
     console.log("request body = ", req.body);
 
@@ -139,8 +125,3 @@ app.delete('/delete-favorites', function (req, res) {
         res.status(200).json(items);
     });
 });
-
-/*server settings (listener)*/
-// exports.app = app;
-// exports.runServer = runServer;
-// app.listen(process.env.PORT, process.env.IP);

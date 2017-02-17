@@ -1,8 +1,4 @@
-//LOGIN
-
 // Get the modal
-//var modal = document.getElementById('id01');
-
 
 var booksArray = [
     //Book 1
@@ -277,6 +273,8 @@ var booksArray = [
     }
 ];
 
+/////// drop down box ////////////////////////
+
 function populateBooksDropDown(inputArray) {
 
     var htmlOutput = "";
@@ -295,20 +293,13 @@ function populateBooksDropDown(inputArray) {
 
 function ajaxWikipediaAuthorSearch(searchTerm) {
 
-    //console.log(searchTerm);
-
     $.ajax({
             type: "GET",
             url: "/search/" + searchTerm,
             dataType: 'json',
         })
         .done(function(result) {
-            //If successful, set some globals instead of using result object
-            // console.log(JSON.parse(result));
-
             var resultsForJsonParse = result.substring(5, result.length - 1);
-
-            //console.log(JSON.parse(resultsForJsonParse));
 
             displayWikipediaAuthorResults(JSON.parse(resultsForJsonParse));
         })
@@ -333,7 +324,6 @@ function displayWikipediaAuthorResults(searchResults) {
 
             if ((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght] !== undefined)) {
 
-                // console.log(searchResultValue);
                 //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
                 if (searchResultKey == 0) {
                     buildTheHtmlOutput += "<div class='favorites'>";
@@ -369,8 +359,6 @@ function displayWikipediaAuthorResults(searchResults) {
 
 function ajaxWikipediaBookSearch(searchTerm) {
 
-    //console.log(searchTerm);
-
     $.ajax({
             type: "GET",
             url: "/search/" + searchTerm,
@@ -378,11 +366,9 @@ function ajaxWikipediaBookSearch(searchTerm) {
         })
         .done(function(result) {
             //If successful, set some globals instead of using result object
-            // console.log(JSON.parse(result));
 
             var resultsForJsonParse = result.substring(5, result.length - 1);
 
-            //console.log(JSON.parse(resultsForJsonParse));
 
             displayWikipediaBookResults(JSON.parse(resultsForJsonParse));
         })
@@ -407,7 +393,6 @@ function displayWikipediaBookResults(searchResults) {
 
             if ((searchResultValue[countArrayLenght] != '') && (searchResultValue[countArrayLenght] !== undefined)) {
 
-                // console.log(searchResultValue);
                 //create and populate one LI for each of the results ( "+=" means concatenate to the previous one)
                 if (searchResultKey == 0) {
 
@@ -442,7 +427,6 @@ function displayWikipediaBookResults(searchResults) {
 //populate favorites container
 function populateFavoritesContainer() {
 
-    //console.log(searchTerm);
 
     $.ajax({
             type: "GET",
@@ -493,7 +477,6 @@ $("#search-form").submit(function(event) {
     var userInput = $("#query").val();
 
     var authorAndBookNameArray = userInput.split(" - ");
-
     var authorName = authorAndBookNameArray[0];
     var bookName = authorAndBookNameArray[1];
 
