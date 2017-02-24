@@ -145,7 +145,7 @@ header .favoritesContainer .favoritesContainerAuthor {
 header .favoritesContainer h2 {
     font-size: 20px; 
     line-height: 18px;
-    font-weight: bold;
+    font-weight: bold:
 }
 
 header .favoritesContainer h2 .clearFavoritesButton {
@@ -153,7 +153,7 @@ header .favoritesContainer h2 .clearFavoritesButton {
     background-color: transparent !important;
     border: none;
     cursor: pointer;
-    font-family: 'IM Fell English', serif;
+    font-family: Roboto , serif;
     display: block;
     width:auto;
     margin: 0;
@@ -196,8 +196,8 @@ section {
     border-radius: 15px;
     display: block;
     font-family: 'IM Fell English', serif;
-    background-image: url(/image/transparent.jpg);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .intro-text #search-form {
@@ -206,8 +206,8 @@ section {
 }
 
 .intro-text #search-form .input-placeholder #query {
-    font-family: Roboto, serif;
-    background-color: white;
+    font-family: 'IM Fell English', serif;
+    background-color: #c1c1c1;
     width: 100%;
 }
 
@@ -244,8 +244,9 @@ section {
     padding: 1rem;
     border-radius: 15px;
     display: block;
-    font-family: Roboto, serif;
-    background-image: url("/image/transparent.jpg");
+    font-family: 'IM Fell English', serif;
+    background-color: white;
+    color: black;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px transparent;
