@@ -18,7 +18,7 @@ You can find a working prototype of the app here:
 The app's functionality includes:
 
 * A database of over 100 classical works
-* Summaries of the relevant information yeah I think
+* Summaries of the relevant information
 * Listing all callable data via *Wikipedia* on any given search query with links to the requested data.
 
 ## Technical
