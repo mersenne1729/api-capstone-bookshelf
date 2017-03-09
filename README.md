@@ -5,7 +5,7 @@ During the latter part of the 19th century and early 20th century several publis
 
 
 ## Use Case
-What this app good for? If your about to visit somewhere or want to know a little more about where someone is from this app will make that an even faster process. By knowing more about the location of a meeting or city where someone is from can help in meeting both professional and personal, and this app let the user do this in a cursory and quick way.
+What this app good for? If you interested in what’s considered class texts and want to know a little about each of the books and authors, then this app is for you. In future versions the book list from the favourite section will be exportable to pdf or as an email attachment. 
 
 ## Initial UX
 The initial mobile and desktop wireframes can be seen below:
