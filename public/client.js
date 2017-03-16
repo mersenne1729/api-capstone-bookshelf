@@ -334,8 +334,6 @@ function displayWikipediaAuthorResults(searchResults) {
                     buildTheHtmlOutput += "</button>";
                     buildTheHtmlOutput += "</form>";
                     buildTheHtmlOutput += "</div>";
-
-
                     buildTheHtmlOutput += "<h2><img src='/image/author-icon.gif' class='results-icon'>" + searchResultValue[countArrayLenght] + "</h2>";
                 }
                 else if (searchResultKey == 1) {
@@ -404,8 +402,6 @@ function displayWikipediaBookResults(searchResults) {
                     buildTheHtmlOutput += "</button>";
                     buildTheHtmlOutput += "</form>";
                     buildTheHtmlOutput += "</div>";
-
-
                     buildTheHtmlOutput += "<h2><img src='/image/book-icon.gif' class='results-icon'>" + searchResultValue[countArrayLenght] + "</h2>";
                 }
                 else if (searchResultKey == 1) {

@@ -145,7 +145,7 @@ header .favoritesContainer .favoritesContainerAuthor {
 header .favoritesContainer h2 {
     font-size: 20px; 
     line-height: 18px;
-    font-weight: bold:
+    font-weight: 300;
 }
 
 header .favoritesContainer h2 .clearFavoritesButton {
@@ -262,12 +262,14 @@ section {
     display: inline-block;
     vertical-align: middle;
     font-family: Roboto, serif;
+    font-weight: 300;
 }
 
 .container .output .js-author-results li h2 .results-icon,
 .container .output .js-book-results li h2 .results-icon {
     width: 30px;
     margin-right: 1rem;
+    font-weight: 300;
 }
 
 .container .output .js-author-results li .favorites,
