@@ -1,38 +1,41 @@
 #  Jerome’s Bookshop
 
-### Background
-During the latter part of the 19th century and early 20th century several publishing houses came across the idea of making what was Noah at the time the Western Canon available to everyone in Society. Of particular prominence were the Oxford world classics Penguin Classics, the Modern Library and Everyman’s Library. In 1905 Joseph Malaby Dent of the Everyman library Made it his goal to catalogue create this Canon that would appeal to every kind of person, from students to the working classes to the cultural elite. Now long forgotten this app attempts to small steps towards introducing this forgotten Canon. Currently all of the information is drawn from open platform API and could be found with a quick Google search, however, in later versions the level of detail and options will be greatly increased.
+## Synopsis
 
+This site is based on the Everyman’s Library and gives users information regarding a large collection of classic books, featuring a *Wikipedia* API.
 
-## Use Case
-What this app good for? If you interested in what’s considered class texts and want to know a little about each of the books and authors, then this app is for you. In future versions the book list from the favourite section will be exportable to pdf or as an email attachment. 
+## Motivation
+
+During the later part of the 19th century and the early 20th century, several publishing houses came across the idea of making, what was known at the time as the Western canon of books (a collection of books that that scholars generally accept as the most important and influential in shaping the Western culture), available to everyone in society. The Everyman’s Library is one of the most prominent series, and this site is made to introduce users to the books and authors in this catalogue of classical texts, via an open platform API. 
 
 ## Initial UX
+
 The initial mobile and desktop wireframes can be seen below:
 ![jerome](https://cloud.githubusercontent.com/assets/22433378/23317255/8588e0ae-fac5-11e6-94ac-abd2fa382467.JPG)
 
-## Working Prototype
-You can find a working prototype of the app here:
-
 ## Functionality
-The app's functionality includes:
 
-* A database of over 100 classical works
-* Summaries of the relevant information
-* Listing all callable data via *Wikipedia* on any given search query with links to the requested data.
+The site's functionality includes:
+
+* A database of over 80 classical books from the Everyman’s Library.
+* Summaries of the relevant information of the books.
+* A Favourites option. 
+* Listing of all callable data via *Wikipedia* on any given search query with links to the requested data.
 
 ## Technical
-The app is built with HTML, CSS, Java Script, jQuery and Node it makes use of JSON calls to the *Wikipedia* Open Platform APIs to return the data. All data is held in memory during the user's session. It has been built to be fully responsive across mobile, tablet and desktop screen resolutions.
+
+The site is built with HTML, CSS, JavaScript, jQuery and Node.js. It makes use of JSON calls to the *Wikipedia* Open Platform API to return the data. All data is held in memory during the user's session. It has been built to be fully responsive across mobile, tablet and desktop screen resolutions.
 
 ## Development Roadmap
-This is v1.0 of the app, but future enhancements are expected to include:
-* Complete categorisation all existing and future books.
-* Comprehensive library of all genres based on Oxford world classics Penguin Classics, the Modern Library and the Everyman's Library.
-* Further enhancements include additional API request recording the details of the authors.
 
-## User stories
-* As a student I want to know more about general thinkers and Philosophy in particular.
-* As a keen Reader I want to be able to read more of the key texts.
-* I want to know what are the historical classical texts like.
-* As someone with a casual interest in reading I want to be able to find out what's so special about these type of books.
+This is v1.0 of the site, future enhancements are expected to include:
+* Expanding the database to include the full Everyman’s Library catalogue and other classical books series such as the Oxford World Classics and the Penguin Classics. 
+* Increasing the level of detail and optionality for each book.
+* Enabling the list of books marked as Favourites to be exportable to a PDF or as an email attachment. 
+
+## User Stories
+
+* As a student I want to find out more about classical books, in particular in philosophy. 
+* As an educator I want to show students a list of seminal texts on an interactive platform. 
+* As someone with a casual interest in reading I want to be able to find out what's so special about this type of books.
 
