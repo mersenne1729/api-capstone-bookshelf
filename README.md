@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-This site is based on the Everyman’s Library and gives users information regarding a large collection of classic books, featuring a *Wikipedia* API.
+This site is based on the Everyman’s Library and gives information regarding a large collection of classic books, featuring a *Wikipedia* API.
 
 ## Motivation
 
@@ -24,18 +24,6 @@ The site's functionality includes:
 
 ## Technical
 
-The site is built with HTML, CSS, JavaScript, jQuery and Node.js. It makes use of JSON calls to the *Wikipedia* Open Platform API to return the data. All data is held in memory during the user's session. It has been built to be fully responsive across mobile, tablet and desktop screen resolutions.
+The site is built with HTML, CSS, JavaScript, jQuery and Node.js. It makes use of JSON calls to the *Wikipedia* Open Platform API to return the data. All data is held in memory during the user's session.
 
-## Development Roadmap
-
-This is v1.0 of the site, future enhancements are expected to include:
-* Expanding the database to include the full Everyman’s Library catalogue and other classical books series such as the Oxford World Classics and the Penguin Classics. 
-* Increasing the level of detail and optionality for each book.
-* Enabling the list of books marked as Favourites to be exportable to a PDF or as an email attachment. 
-
-## User Stories
-
-* As a student I want to find out more about classical books, in particular in philosophy. 
-* As an educator I want to show students a list of seminal texts on an interactive platform. 
-* As someone with a casual interest in reading I want to be able to find out what's so special about this type of books.
 
